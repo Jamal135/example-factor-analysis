@@ -6,14 +6,17 @@ from factor_analyzer import FactorAnalyzer
 # Load data
 dataframe = pandas.read_csv('data.csv')
 
+# Remove unneeded column
+dataframe.drop('subno', axis = 1)
+
 # Define type
-paf = FactorAnalyzer(method='principal')
-paf.set_params(n_factors=2, rotation="oblimin")
+paf = FactorAnalyzer(method = 'principal')
+paf.set_params(n_factors = 2, rotation = 'oblimin')
 
 # Apply data
 paf.fit(dataframe)
 
 # Show results
-print(f"Variable Factor Loading Scores:\n{paf.loadings_}\n")
-print(f"Variable Communality Scores:\n{paf.get_communalities()}\n")
-print(f"Variable Uniqueness Scores:\n{paf.get_uniquenesses()}\n")
+print(f'Variable Factor Loading Scores:\n{paf.loadings_}\n')
+print(f'Variable Communality Scores:\n{paf.get_communalities()}\n')
+print(f'Variable Uniqueness Scores:\n{paf.get_uniquenesses()}\n')
