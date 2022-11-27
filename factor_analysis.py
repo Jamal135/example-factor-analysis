@@ -6,9 +6,6 @@ from factor_analyzer import FactorAnalyzer
 # Load data
 dataframe = pandas.read_csv('data.csv')
 
-# Remove unneeded column
-dataframe.drop('subno', axis = 1)
-
 # Define type
 paf = FactorAnalyzer(method = 'principal')
 paf.set_params(n_factors = 2, rotation = 'oblimin')
